@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Jost:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd{
+  height: 0vh !important;
+  width: 0vw !important;
+  display: none !important;
+  position: absolute !important;
+  top: -100% !important;
+}
+.goog-te-gadget-simple{
+  border-radius: .7rem !important;
+  position: fixed !important;
+  right: 90px;
+  top: 35px;
+  z-index: 10000000;
+  -webkit-border-radius: .7rem !important;
+  -moz-border-radius: .7rem !important;
+  -ms-border-radius: .7rem !important;
+  -o-border-radius: .7rem !important;
+}
+.goog-te-gadget-icon{
+  display: none !important;
+}
+#goog-gt-tt{
+  display: none !important;
+}
+.mt-40{
+  margin-top: -40px;
+}
+
+/***** whatsapp icon *****/
+.whatsapp-icon {
+  z-index: 999;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.fa-brand {
+  color: white;
+}
+
+@media screen and (max-width: 440px) {
+  .whatsapp-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem !important;
+  }
+}
+
+
+:root {
+  --orange-web: #ffa400;
+  --celestial-blue: #009ffd;
+  --royal-blue: #2a2a72;
+  --raisin-black: #232528;
+  --alice-blue: #eaf6ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  position: fixed;
+  top:0;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 1rem 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+
+  .menu-icon span {
+    background: var(--royal-blue);
+  }
+  .blue-logo {
+    display: block;
+    transition: display 0.5s linear;
+    -webkit-transition: display 0.5s linear;
+    -moz-transition: display 0.5s linear;
+    -ms-transition: display 0.5s linear;
+    -o-transition: display 0.5s linear;
+  }
+  .white-logo {
+    display: none;
+    transition: display 0.5s linear;
+    -webkit-transition: display 0.5s linear;
+    -moz-transition: display 0.5s linear;
+    -ms-transition: display 0.5s linear;
+    -o-transition: display 0.5s linear;
+  }
+}
+
+.logo {
+  width: 5rem;
+  height: 3rem;
+  object-fit: cover;
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+.blue-logo {
+  display: none;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+  z-index: 10000 !important;
+}
+
+.menu-icon span {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--alice-blue);
+  transition: all 0.3s ease;
+}
+
+.menu-icon span:nth-child(1) {
+  top: 0;
+}
+.menu-icon span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.menu-icon span:nth-child(3) {
+  bottom: 0;
+}
+
+.menu-icon.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 50%;
+  background: var(--alice-blue);
+}
+
+.menu-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 40%;
+  background: var(--alice-blue);
+}
+
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #2a2a7288;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  z-index: 10;
+}
+
+.menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.menu-items li {
+  font-family: "Playfair Display", sans-serif;
+  margin: 1rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.menu-items li a {
+  font-size: 2.5rem;
+  color: var(--alice-blue);
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.menu-items li a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--orange-web);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.menu-items li a:hover {
+  color: var(--orange-web);
+}
+
+.menu-items li a:hover::before {
+  width: 100%;
+}
+
+/* loader */

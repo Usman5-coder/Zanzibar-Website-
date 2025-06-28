@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../images/znzwhitelogo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../styles/navbar.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <style>
+      :root {
+        --orange-web: #ffa400;
+        --celestial-blue: #009ffd;
+        --royal-blue: #2a2a72;
+        --raisin-black: #232528;
+        --alice-blue: #eaf6ff;
+      }
+      .about-section {
+        padding: 80px 0;
+        background-color: var(--alice-blue);
+        overflow: hidden;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        color: var(--royal-blue);
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 80px;
+        opacity: 1;
+      }
+
+      .about-image {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(42, 42, 114, 0.1);
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      .about-content {
+        padding-left: 30px;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .year-title {
+        font-family: "Playfair Display", serif;
+        color: var(--celestial-blue);
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .about-text {
+        font-family: "Jost", sans-serif;
+        color: var(--raisin-black);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      .cta-button {
+        font-family: "Jost", sans-serif;
+        background-color: var(--royal-blue);
+        color: white;
+        padding: 15px 35px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        background-color: var(--celestial-blue);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 159, 253, 0.2);
+        color: white;
+      }
+
+      @media (max-width: 991px) {
+        .about-content {
+          padding-left: 0;
+          margin-top: 40px;
+          text-align: center;
+        }
+
+        .section-title {
+          font-size: 2.5rem;
+          margin-bottom: 60px;
+        }
+
+        .year-title {
+          font-size: 2rem;
+        }
+      }
+      .hero-section {
+        position: relative;
+        height: 80vh;
+        overflow: hidden;
+        background-color: #1e2022;
+        backdrop-filter: brightness(0.6);
+      }
+
+      .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../images/pages-hero-section.jpg");
+        background-size: cover;
+        background-position: center;
+        animation: scaleBackground 20s infinite alternate;
+      }
+
+      .gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, var(--royal-blue) 5%, transparent);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-title {
+        font-size: 4.5rem;
+        color: var(--alice-blue);
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 0.5s;
+        font-family: "Playfair display", sans-serif;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+        color: var(--alice-blue);
+        font-weight: 400;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 0.8s;
+        font-family: "Jost", sans-serif;
+      }
+
+      /* Animated Shapes */
+      .shape {
+        position: absolute;
+        opacity: 0.1;
+        z-index: 1;
+      }
+
+      .shape-1 {
+        top: 20%;
+        left: 10%;
+        width: 100px;
+        height: 100px;
+        background: var(--orange-web);
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        animation: floatAnimation 8s infinite ease-in-out;
+      }
+
+      .shape-2 {
+        top: 60%;
+        right: 15%;
+        width: 150px;
+        height: 150px;
+        background: var(--orange-web);
+        border-radius: 50%;
+        animation: floatAnimation 10s infinite ease-in-out reverse;
+      }
+
+      .shape-3 {
+        bottom: 10%;
+        left: 15%;
+        width: 120px;
+        height: 120px;
+        background: var(--celestial-blue);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        animation: floatAnimation 12s infinite ease-in-out;
+      }
+
+      @keyframes scaleBackground {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes floatAnimation {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(10deg);
+        }
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 70vh;
+          min-height: 500px;
+        }
+
+        .hero-title {
+          font-size: 3rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+          padding: 0 1rem;
+        }
+
+        .shape {
+          transform: scale(0.7);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .shape {
+          transform: scale(0.5);
+        }
+      }
+      .counter-section {
+        padding: 150px 0;
+        background-image: linear-gradient(var(--royal-blue), transparent),
+          url("../images/counter-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .counter-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(82, 97, 107, 0.05) 0px,
+          rgba(82, 97, 107, 0.05) 2px,
+          transparent 2px,
+          transparent 10px
+        );
+      }
+
+      .counter-card {
+        background: rgba(240, 245, 249, 0.08);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 3rem 2rem;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .counter-card::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 60%
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+
+      .counter-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        background: rgba(240, 245, 249, 0.12);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .counter-card:hover::after {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      .counter-icon {
+        font-size: 3.5rem;
+        background: linear-gradient(135deg, #f0f5f9, #c9d6df);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .counter-card:hover .counter-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .counter-number {
+        font-size: 4rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #f0f5f9, #c9d6df);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+        line-height: 1;
+        font-family: "Arial", sans-serif;
+      }
+
+      .counter-text {
+        color: #c9d6df;
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .counter-text::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #c9d6df, transparent);
+      }
+
+      /* .floating {
+  animation: floating 3s ease-in-out infinite;
+} */
+      .counter-h2::after {
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #c9d6df,
+          transparent
+        ) !important;
+      }
+      @keyframes floating {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      @media (max-width: 991.98px) {
+        .counter-section {
+          padding: 100px 0;
+        }
+        .counter-card {
+          margin-bottom: 30px;
+        }
+        .counter-number {
+          font-size: 3.5rem;
+        }
+      }
+
+      .counter-section {
+        .section-title {
+          text-align: center;
+          margin-bottom: 60px;
+          color: #f0f5f9;
+          position: relative;
+        }
+
+        .section-title h2 {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 20px;
+          background: linear-gradient(135deg, #f0f5f9, #c9d6df);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+          color: #c9d6df;
+          font-size: 1.1rem;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      }
+      /***** End counter css *****/
+
+      /***** shape divider  *****/
+      .custom-shape-divider-top-1735805625 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+
+      .custom-shape-divider-top-1735805625 svg {
+        position: relative;
+        display: block;
+        width: calc(127% + 1.3px);
+        height: 41px;
+      }
+
+      .custom-shape-divider-top-1735805625 .shape-fill {
+        fill: #f1f5f8;
+      }
+      /***** End shape divider  *****/
+
+      /***** Testimonial  *****/
+      .testimonials-section {
+        padding: 100px 0 0 0;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 4rem;
+      }
+
+      .section-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+          var(--royal-blue) 1px,
+          transparent 1px
+        );
+        background-size: 20px 20px;
+        opacity: 0.1;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--royal-blue), #52616b);
+        border-radius: 2px;
+      }
+
+      .testimonial-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin: 20px;
+        position: relative;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(82, 97, 107, 0.3);
+      }
+
+      .quote-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 4rem;
+        color: #1e2022;
+        opacity: 0.6;
+        font-family: serif;
+      }
+
+      .testimonial-content {
+        color: #52616b;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+      }
+
+      .client-info {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+      }
+
+      .client-image {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 20px;
+        border: 3px solid #f0f5f9;
+        box-shadow: 0 5px 15px rgba(82, 97, 107, 0.2);
+      }
+
+      .client-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .client-details h4 {
+        color: #1e2022;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .client-details p {
+        color: #52616b;
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      .rating {
+        color: #ffd700;
+        margin-bottom: 1rem;
+      }
+
+      .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background: #c9d6df;
+        opacity: 1;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: #52616b;
+        transform: scale(1.2);
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #52616b;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 5px 15px rgba(82, 97, 107, 0.2);
+      }
+
+      .swiper-button-next:after,
+      .swiper-button-prev:after {
+        font-size: 1.2rem;
+      }
+      @media (max-width: 768px) {
+        .testimonials-section {
+          padding: 60px 0;
+        }
+        .testimonial-card {
+          padding: 1.5rem;
+          margin: 10px;
+        }
+        .section-title h2 {
+          font-size: 2rem;
+        }
+      }
+      .hide{
+        display: none;
+      }
+      .visible{
+        display: block;
+      }
+      /***** End Testimonial  *****/
+    </style>
+  </head>
+  <body>
+    <div class="whatsapp-icon" id="whatsapp-icon">
+      <i class="fa-brands fa-whatsapp"></i>
+    </div>
+    <div class="translate-button" id="google_translate_element"></div>
+    <!-- ========== Start navbar and fullwidth menu ========== -->
+    <nav class="navbar">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <a href="#" class="logo"
+          ><img src="../images/znzlogo.png" alt="znz-logo" class="blue-logo" />
+          <img
+            src="../images/znzwhitelogo.png"
+            alt="znz-white-logo"
+            class="white-logo"
+          />
+        </a>
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+    <div class="fullscreen-menu">
+      <ul class="menu-items">
+        <li><a href="../index">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="project">Projects</a></li>
+        <li><a href="blog">Blog</a></li>
+        <li><a href="contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <!-- ========== End navbar and fullwidth menu ========== -->
+
+    <!-- ========== Start haro section ========== -->
+    <section class="hero-section">
+      <div class="hero-background"></div>
+      <div class="gradient-overlay"></div>
+
+      <!-- Animated Shapes -->
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+
+      <div class="hero-content">
+        <div class="container">
+          <h1 class="hero-title">About Us</h1>
+          <p class="hero-subtitle">
+            We transform ideas into extraordinary digital experiences, pushing
+            the boundaries of innovation while maintaining simplicity and
+            elegance.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- ========== End haro section ========== -->
+
+    <!-- ========== Start about section content ========== -->
+    <section class="about-section">
+      <div class="container">
+        <h1 class="section-title">
+          WE DEVELOP QUALITY INFRASTRUCTURE AND<br />REAL ESTATE PROJECTS
+        </h1>
+
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <img
+              src="../images/about-img.jpg"
+              alt="Team Meeting"
+              class="about-image"
+            />
+          </div>
+          <div class="col-lg-6">
+            <div class="about-content">
+              <h2 class="year-title">Since 1983</h2>
+              <p class="about-text">
+                At ZNZ Developers, we are committed to shaping the future of
+                luxury living in Zanzibar by developing high-quality real estate
+                and infrastructure projects. With a deep understanding of the
+                island’s charm and potential, we create elegant homes that
+                seamlessly blend modern design with the beauty of nature.
+              </p>
+              <p class="about-text">
+                Our team is driven by a passion for excellence, ensuring that
+                every project reflects superior craftsmanship, innovation, and
+                sustainability. Whether you’re looking for a serene beachfront
+                retreat or a high-value investment opportunity, ZNZ Developers
+                delivers properties that redefine comfort and sophistication.
+              </p>
+              <a class="cta-button">Read more...</a>
+              <div class="hidden-para about-text hide">
+                With a strong focus on quality, transparency, and customer
+                satisfaction, we don’t just build homes—we create lifestyles.
+                Join us in discovering the beauty of Zanzibar and investing in a
+                future filled with endless possibilities.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== End about section content ========== -->
+
+    <!-- ========== Start counter section ========== -->
+    <section class="counter-section">
+      <div class="custom-shape-divider-top-1735805625">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2 class="counter-h2">Our Achievements</h2>
+          <p>Milestones that define our journey of excellence and innovation</p>
+        </div>
+
+        <div class="row">
+          <!-- Projects Delivered -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="counter-card floating">
+              <div class="counter-number" data-target="850">0</div>
+              <div class="counter-text">
+                Projects <br />
+                Delivered
+              </div>
+            </div>
+          </div>
+
+          <!-- Global Clients -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="counter-card" style="animation-delay: 0.2s">
+              <div class="counter-number" data-target="1500">0</div>
+              <div class="counter-text">
+                Global <br />
+                Clients
+              </div>
+            </div>
+          </div>
+
+          <!-- Expert Team -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="counter-card floating" style="animation-delay: 0.4s">
+              <div class="counter-number" data-target="250">0</div>
+              <div class="counter-text">
+                Expert<br />
+                Team
+              </div>
+            </div>
+          </div>
+
+          <!-- Industry Awards -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="counter-card" style="animation-delay: 0.6s">
+              <div class="counter-number" data-target="15">0</div>
+              <div class="counter-text">
+                Years<br />
+                Experience
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== End counter section ========== -->
+
+    <!-- ========== Start Testimonial section ========== -->
+    <section class="testimonials-section">
+      <div class="section-pattern"></div>
+      <div class="container">
+        <div class="section-title" style="color: var(--royal-blue) !important">
+          <h2>What Our Clients Say</h2>
+        </div>
+
+        <div class="swiper testimonial-slider">
+          <div class="swiper-wrapper">
+            <!-- Testimonial 1 -->
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="rating">★★★★★</div>
+                <p class="testimonial-content">
+                  "Working with ZNZ has been an exceptional experience. Their
+                  attention to detail and commitment to excellence transformed
+                  our vision into reality. The team's professionalism and
+                  innovative approach exceeded our expectations."
+                </p>
+                <div class="client-info">
+                  <div class="client-image">
+                    <img src="../images/jiwon.jpeg" alt="Client 1" />
+                  </div>
+                  <div class="client-details">
+                    <h4>Kim Ji Won</h4>
+                    <p>CEO, Tech Innovations</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="rating">★★★★★</div>
+                <p class="testimonial-content">
+                  "The expertise and dedication of ZNZ's team are unmatched.
+                  They delivered our project ahead of schedule and within
+                  budget. Their innovative solutions and strategic approach have
+                  helped our business grow and make it a Unicorn."
+                </p>
+                <div class="client-info">
+                  <div class="client-image">
+                    <img src="../images/hyoseop.jpeg" alt="Client 2" />
+                  </div>
+                  <div class="client-details">
+                    <h4>Ahn hyo Seop</h4>
+                    <p>Director, Global Solutions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="rating">★★★★★</div>
+                <p class="testimonial-content">
+                  "ZNZ's developers commitment to quality and innovation is
+                  remarkable. Their team's collaborative approach and technical
+                  expertise have been instrumental in the success of our
+                  projects. Highly recommended!"
+                </p>
+                <div class="client-info">
+                  <div class="client-image">
+                    <img src="../images/Sejeong.jpeg" alt="Client 3" />
+                  </div>
+                  <div class="client-details">
+                    <h4>Shin Hae Ri</h4>
+                    <p>CTO, Future Systems</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== End Testimonial section ========== -->
+
+    <!-- ========== Start footer  ========== -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="../images/znzwhitelogo.png" alt="" />
+          </div>
+          <p class="footer-description">
+            At ZNZ Developers, we are dedicated to transforming dreams into
+            reality by creating exceptional homes in the heart of Zanzibar. With
+            a passion for elegance and quality, we design properties that offer
+            a perfect blend of modern comfort and island charm.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-list">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Villas</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Services</h3>
+          <ul class="footer-list">
+            <li><a href="#">Luxury Villas</a></li>
+            <li><a href="#">Private Beach</a></li>
+            <li><a href="#">Concierge</a></li>
+            <li><a href="#">Restaurant</a></li>
+            <li><a href="#">Spa & Wellness</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-heading">Contact Us</h3>
+          <div class="contact-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Jambiani, Zanzibar, Tanzania</span>
+          </div>
+          <div class="contact-info">
+            <i class="fas fa-phone"></i>
+            <span
+              ><a
+                href="tel:+255748926732"
+                style="text-decoration: none; color: var(--alice-blue)"
+                >+255748926732</a
+              ></span
+            >
+          </div>
+          <div class="contact-info">
+            <i class="fas fa-envelope"></i>
+            <span
+              ><a
+                href="mailto:info.znzdevelopers@gmail.com"
+                style="text-decoration: none; color: var(--alice-blue)"
+                >info.znzdevelopers@gmail.com</a
+              ></span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Zanzibar. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- ========== End footer  ========== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+      new Swiper(".testimonial-slider", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 1,
+          },
+          1024: {
+            slidesPerView: 2,
+          },
+        },
+        effect: "slide",
+        speed: 800,
+        grabCursor: true,
+        keyboard: {
+          enabled: true,
+        },
+      });
+    </script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Animate image
+      gsap.to(".about-image", {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".about-image",
+          start: "top 80%",
+        },
+      });
+
+      // Animate content
+      gsap.to(".about-content", {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".about-content",
+          start: "top 80%",
+        },
+      });
+      const counters = document.querySelectorAll(".counter-number");
+
+      const animateValue = (element, start, end, duration) => {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          element.innerHTML =
+            Math.floor(progress * (end - start) + start) + "+";
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const target = parseInt(entry.target.getAttribute("data-target"));
+              animateValue(entry.target, 0, target, 2000);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      counters.forEach((counter) => observer.observe(counter));
+    </script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            defaultLanguage: "en",
+            pageLanguage: "en",
+            includedLanguages: "de,ru,en,es,it,fr,ar,sw",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisp1ay: true,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+      document
+        .querySelector(".translate-button")
+        .addEventListener("click", function () {
+          document.querySelector(".hero-section").classList.add("mt-40");
+        });
+
+        document.querySelector(".cta-button").addEventListener("click", function () {
+          document.querySelector(".hidden-para").classList.remove("hide");
+          document.querySelector(".cta-button").classList.add("hide");
+        });
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="../scripts/navbar.js"></script>
+    <script src="../scripts/footer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1059 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Jost:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --orange-web: #ffa400;
+  --celestial-blue: #009ffd;
+  --royal-blue: #2a2a72;
+  --raisin-black: #232528;
+  --alice-blue: #eaf6ff;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  overflow-x: hidden !important;
+  width: 100vw;
+  background-color: var(--alice-blue);
+}
+
+/***** Hero section css *****/
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mt-40{
+  margin-top: -40px;
+}
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(42, 42, 114, 0.9) 0%,
+    transparent 100%
+  );
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--alice-blue);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  font-family: "Jost", sans-serif;
+  color: var(--orange-web);
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(20px);
+  font-family: "Playfair Display", sans-serif;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  color: var(--alice-blue);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--alice-blue);
+  background: var(--royal-blue);
+  border: 2px solid var(--royal-blue);
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background: transparent;
+  color: var(--alice-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--royal-blue);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+}
+
+.cta-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    letter-spacing: 3px;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+  }
+
+  .cta-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-content {
+    padding: 1rem;
+  }
+}
+/***** End Hero section css *****/
+
+/***** About white section *****/
+.resort-section {
+  padding: 100px 200px;
+  text-align: left;
+  background-color: var(--alice-blue);
+  margin: 0 auto;
+}
+
+.main-title {
+  font-family: "Playfair display", serif;
+  font-size: 3.5rem;
+  color: var(--royal-blue);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(20px);
+  white-space: wrap;
+}
+
+.subtitle {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: var(--raisin-black);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.description {
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  max-width: 900px;
+  margin: 2rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.highlight {
+  color: var(--orange-web);
+  font-weight: bold;
+}
+
+.read-more {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: transparent;
+  color: var(--orange-web);
+  border: 2px solid var(--orange-web);
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+.read-more:hover {
+  background-color: var(--orange-web);
+  color: white;
+}
+
+.read-more::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease !important;
+  z-index: -1;
+  -webkit-transition: width 0.6s ease, height 0.6s ease !important;
+  -moz-transition: width 0.6s ease, height 0.6s ease !important;
+  -ms-transition: width 0.6s ease, height 0.6s ease !important;
+  -o-transition: width 0.6s ease, height 0.6s ease !important;
+}
+
+.read-more:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+    padding: 0 20px;
+    white-space: wrap;
+  }
+
+  .subtitle {
+    font-size: 1.8rem;
+    padding: 0 20px;
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+  .cta-button {
+    margin-left: 1rem !important;
+  }
+  .read-more {
+    margin-left: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .resort-section {
+    padding: 60px 15px;
+  }
+}
+/***** End About white section *****/
+
+/***** About section css *****/
+.about-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/paradise-on-earth.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: local;
+  transform: scale(1.1);
+  filter: brightness(0.6);
+  z-index: -1;
+  animation: zoomIn 10s infinite linear alternate;
+  -webkit-animation: zoomIn 10s infinite linear alternate;
+}
+@keyframes zoomIn {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.2;
+  }
+}
+.about-content {
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  color: var(--orange-web);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.about-heading {
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: var(--alice-blue);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(30px);
+  font-family: "Playfair display", sans-serif;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--alice-blue);
+  max-width: 600px;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  font-family: "Jost", sans-serif;
+}
+
+.about-link {
+  display: inline-block;
+  font-size: 1.1rem;
+  color: var(--alice-blue);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: color 0.3s ease;
+  font-family: "Jost", sans-serif;
+}
+
+.about-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--orange-web);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.about-link:hover {
+  color: var(--orange-web);
+}
+
+.about-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.floating-shape {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 2px solid #ffa60076;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.shape-1 {
+  top: -100px;
+  right: -100px;
+  animation: float 20s infinite linear;
+}
+
+.shape-2 {
+  bottom: -150px;
+  left: -150px;
+  width: 300px;
+  height: 300px;
+  animation: float 15s infinite linear reverse;
+}
+
+@keyframes float {
+  0% {
+    transform: rotate(0deg) translate(50px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(50px) rotate(-360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-heading {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 1rem;
+    letter-spacing: 6px;
+  }
+
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .floating-shape {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-heading {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    letter-spacing: 4px;
+  }
+
+  .about-section {
+    padding: 60px 0;
+  }
+}
+/***** End About section css *****/
+
+/***** reasons css section *****/
+.reasons-carousel-container {
+  background: var(--alice-blue) !important;
+  height: 70vh;
+  position: relative;
+  font-size: 14px;
+  color: #000;
+  margin: 2rem 0 0 0;
+  padding: 0;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.swiper-slide .title {
+  font-size: 41px;
+  font-weight: 300;
+  font-family: "Playfair Display", sans-serif;
+  background-color: transparent;
+  color: var(--orange-web);
+  backdrop-filter: blur(3px);
+  width: max-content;
+  padding: 5px 20px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.174);
+  text-shadow: 1px 1px 2px var(--orange-web);
+}
+
+.swiper-slide .text {
+  margin-top: 2rem;
+  font-size: 14px;
+  max-width: 400px;
+  line-height: 1.4;
+  font-family: "Jost", sans-serif;
+  background-color: rgba(0, 0, 0, 0.174);
+  backdrop-filter: blur(3px);
+  width: max-content;
+  padding: 20px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.reasons-heading {
+  font-family: "Playfair display", serif;
+  font-size: 3rem;
+  color: var(--royal-blue);
+  margin: 2rem auto 2rem auto;
+  line-height: 1.2;
+  opacity: 1;
+  text-align: center;
+  width: 70%;
+  font-weight: 600;
+}
+.reasons-para {
+  font-family: "jost", serif;
+  font-size: 1.2rem;
+  color: var(--orange-web);
+  font-weight: 400;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto 2.5rem auto;
+}
+@media (max-width: 768px) {
+  .reasons-heading {
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 0 20px;
+  }
+  .reasons-para {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .swiper-slide .text,
+  .swiper-slide .title {
+    width: 100%;
+  }
+  .swiper-slide .title {
+    color: var(--royal-blue);
+    font-size: 1.8rem;
+  }
+  .text {
+    font-size: 1.1rem !important;
+    font-weight: 400 !important;
+  }
+}
+/***** End reasons css section *****/
+
+/***** timeline section css *****/
+.timeline-container-wrapper {
+  background: white;
+}
+.hori-timeline .events {
+  border-top: 3px solid #2a2a7296;
+}
+.hori-timeline .events .event-list {
+  display: block;
+  position: relative;
+  text-align: center;
+  padding-top: 70px;
+  margin-right: 0;
+}
+.hori-timeline .events .event-list:before {
+  content: "";
+  position: absolute;
+  height: 36px;
+  border-right: 2px dashed #dee2e6;
+  top: 0;
+}
+.hori-timeline .events .event-list .event-date {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  width: 75px;
+  margin: 0 auto;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+.event-date {
+  border-radius: 50% !important;
+  width: 25px !important;
+  height: 25px;
+  background: var(--orange-web);
+  padding-bottom: 5px !important;
+}
+@media (min-width: 1140px) {
+  .hori-timeline .events .event-list {
+    display: inline-block;
+    width: 24%;
+    padding-top: 45px;
+  }
+  .hori-timeline .events .event-list .event-date {
+    top: -12px;
+  }
+}
+.card {
+  border: none;
+  margin-bottom: 24px;
+  -webkit-box-shadow: 0 0 13px 0 rgba(236, 236, 241, 0.44);
+  box-shadow: 0 0 13px 0 rgba(28, 28, 74, 0.2);
+}
+.text-muted {
+  font-family: "jost", sans-serif;
+}
+h5 {
+  font-family: "Playfair display", sans-serif;
+  color: var(--royal-blue);
+}
+.timeline-heading {
+  font-family: "Playfair display", serif;
+  font-weight: 600;
+  font-size: 3rem;
+  color: var(--royal-blue);
+  margin: 4.5rem auto 3.5rem auto;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  padding: 1rem;
+  text-align: center;
+  width: 70%;
+}
+@media (max-width: 768px) {
+  .timeline-heading {
+    font-size: 2rem;
+    width: 100%;
+  }
+}
+/***** End timeline section css *****/
+
+/***** project slider css *****/
+/* .projects-section {
+  padding: 6rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.section-subtitle {
+  font-family: "Jost", sans-serif;
+  color: var(--celestial-blue);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-title2 {
+  font-family: "Playfair Display", serif;
+  color: var(--royal-blue);
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.project-card {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-image {
+  position: relative;
+  padding-top: 75%;
+  overflow: hidden;
+}
+
+.project-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1);
+}
+
+.project-content {
+  padding: 2rem;
+  position: relative;
+}
+
+.project-category {
+  font-family: "Jost", sans-serif;
+  color: var(--celestial-blue);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  font-family: "Playfair Display", serif;
+  color: var(--raisin-black);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.project-description {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--celestial-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: var(--royal-blue);
+}
+
+.project-link::after {
+  content: "→";
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.project-link:hover::after {
+  transform: translateX(5px);
+}
+
+.project-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--royal-blue);
+  backdrop-filter: blur(5px);
+}
+
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .projects-section {
+    padding: 4rem 1.5rem;
+  }
+} */
+
+.scene {
+  perspective: 1000px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 12s infinite linear;
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+/* Front face */
+.front {
+  background: rgba(76, 175, 80, 0.8);
+  transform: translateZ(150px);
+  background-image: url("../images/Luxury-Grand-Villa-House.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Back face */
+.back {
+  background: rgba(33, 150, 243, 0.8);
+  transform: translateZ(-150px) rotateX(0deg);
+  background-image: url("../images/Villas.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-transform: translateZ(-150px) rotateX(0deg);
+  -moz-transform: translateZ(-150px) rotateX(0deg);
+  -ms-transform: translateZ(-150px) rotateX(0deg);
+  -o-transform: translateZ(-150px) rotateX(0deg);
+}
+
+/* Top face */
+.top {
+  background: rgba(156, 39, 176, 0.8);
+  transform: rotateX(90deg) translateZ(150px);
+}
+
+/* Bottom face */
+.bottom {
+  background: rgba(255, 193, 7, 0.8);
+  transform: rotateX(-90deg) translateZ(150px);
+}
+
+/* Right face */
+.right {
+  background: var(--orange-web);
+  transform: rotateY(90deg) translateZ(150px);
+  background-image: url("../images/Zanzibar-Apartments.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Left face */
+.left {
+  background: var(--alice-blue);
+  transform: rotateY(-90deg) translateZ(150px);
+  background-image: url("../images/Zanzibar-Property-Villa.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Hover effect - slows down rotation */
+.scene:hover .cube {
+  animation-play-state: paused;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .scene {
+    width: 250px;
+    height: 250px;
+  }
+
+  .front {
+    transform: translateZ(125px);
+  }
+  .back {
+    transform: translateZ(-125px) rotateX(0deg);
+    -webkit-transform: translateZ(-125px) rotateX(0deg);
+    -moz-transform: translateZ(-125px) rotateX(0deg);
+    -ms-transform: translateZ(-125px) rotateX(0deg);
+    -o-transform: translateZ(-125px) rotateX(0deg);
+}
+  .top {
+    transform: rotateX(90deg) translateZ(125px);
+  }
+  .bottom {
+    transform: rotateX(-90deg) translateZ(125px);
+  }
+  .right {
+    transform: rotateY(90deg) translateZ(125px);
+  }
+  .left {
+    transform: rotateY(-90deg) translateZ(125px);
+  }
+}
+
+@media (max-width: 480px) {
+  .scene {
+    width: 200px;
+    height: 200px;
+  }
+
+  .front {
+    transform: translateZ(100px);
+  }
+  .back {
+    transform: translateZ(-100px) rotateX(0deg);
+}
+  .top {
+    transform: rotateX(90deg) translateZ(100px);
+  }
+  .bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+  }
+  .right {
+    transform: rotateY(90deg) translateZ(100px);
+  }
+  .left {
+    transform: rotateY(-90deg) translateZ(100px);
+  }
+}
+.parent-project-container {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden !important;
+  background-color: var(--alice-blue);
+}
+.text-content {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  padding: 3rem 5rem;
+}
+.cube-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-links {
+  text-decoration: none;
+  text-align: left;
+  font-family: 'playfair display', sans-serif;
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+}
+.project-para{
+  font-family: 'jost', sans-serif;
+}
+@media (max-width: 768px) {
+  .parent-project-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+
+  }
+  .text-content {
+    width: 100%;
+  }
+  .cube-container {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  .project-links {
+    text-align: left;
+  }
+}
+.project-heading{
+    font-family: "Playfair display", serif;
+  font-size: 3rem;
+  color: var(--royal-blue);
+  margin: 3.5rem auto 2rem auto;
+  line-height: 1.2;
+  opacity: 1;
+  text-align: center;
+  width: 70%;
+  font-weight: 600;
+  background-color: var(--alice-blue);
+}
+/***** End project slider css *****/

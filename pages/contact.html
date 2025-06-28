@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../images/znzwhitelogo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../styles/navbar.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <style>
+      .hero-section {
+        position: relative;
+        height: 80vh;
+        overflow: hidden;
+        background-color: #1e2022;
+        backdrop-filter: brightness(0.6);
+      }
+
+      .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../images/pages-hero-section.jpg");
+        background-size: cover;
+        background-position: center;
+        animation: scaleBackground 20s infinite alternate;
+      }
+
+      .gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, var(--royal-blue) 5%, transparent);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-title {
+        font-size: 4.5rem;
+        color: var(--alice-blue);
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 0.5s;
+        font-family: "Playfair display", sans-serif;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+        color: var(--alice-blue);
+        font-weight: 400;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 0.8s;
+        font-family: "Jost", sans-serif;
+      }
+
+      /* Animated Shapes */
+      .shape {
+        position: absolute;
+        opacity: 0.1;
+        z-index: 1;
+      }
+
+      .shape-1 {
+        top: 20%;
+        left: 10%;
+        width: 100px;
+        height: 100px;
+        background: var(--orange-web);
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        animation: floatAnimation 8s infinite ease-in-out;
+      }
+
+      .shape-2 {
+        top: 60%;
+        right: 15%;
+        width: 150px;
+        height: 150px;
+        background: var(--orange-web);
+        border-radius: 50%;
+        animation: floatAnimation 10s infinite ease-in-out reverse;
+      }
+
+      .shape-3 {
+        bottom: 10%;
+        left: 15%;
+        width: 120px;
+        height: 120px;
+        background: var(--celestial-blue);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        animation: floatAnimation 12s infinite ease-in-out;
+      }
+
+      @keyframes scaleBackground {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes floatAnimation {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(10deg);
+        }
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 70vh;
+          min-height: 500px;
+        }
+
+        .hero-title {
+          font-size: 3rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+          padding: 0 1rem;
+        }
+
+        .shape {
+          transform: scale(0.7);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .shape {
+          transform: scale(0.5);
+        }
+      }
+      .body {
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        font-family: "jost", sans-serif;
+      }
+
+      .contact-container {
+        display: flex;
+        width: 100%;
+        max-width: 1200px;
+        background-color: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 3rem auto;
+
+        .contact-info,
+        .contact-form {
+          flex: 1;
+          padding: 40px;
+        }
+
+        .contact-info2 {
+          background-color: var(--royal-blue);
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 2rem;
+        }
+
+        .contact-form {
+          background-color: white;
+        }
+
+        .contact-details {
+          margin-bottom: 30px;
+        }
+
+        .contact-details h2 {
+          margin-bottom: 15px;
+          font-size: 24px;
+          font-family: "Playfair display";
+        }
+
+        .contact-details p,
+        .contact-details a {
+          margin-bottom: 10px;
+          color: white;
+          text-decoration: none;
+          text-align: left;
+        }
+
+        .contact-form h2 {
+          margin-bottom: 20px;
+          color: #333;
+        }
+
+        .form-group {
+          margin-bottom: 20px;
+        }
+
+        .form-group label {
+          display: block;
+          margin-bottom: 5px;
+          color: #666;
+        }
+
+        .form-group input,
+        .form-group textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+        }
+
+        .form-group textarea {
+          resize: vertical;
+          min-height: 100px;
+        }
+
+        .submit-btn {
+          background-color: var(--royal-blue);
+          color: white;
+          border: none;
+          padding: 12px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+          background-color: #2980b9;
+        }
+
+        .map-container {
+          width: 100%;
+          height: 300px;
+          background-color: #e0e0e0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #666;
+          overflow: hidden;
+        }
+      }
+
+      .contact-heading {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 3rem;
+        font-family: "Playfair display", sans-serif;
+        font-weight: 6 00;
+        color: var(--royal-blue);
+      }
+      @media (max-width:768px) {
+        .contact-container{
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="whatsapp-icon" id="whatsapp-icon">
+      <i class="fa-brands fa-whatsapp"></i>
+    </div>
+    <div class="translate-button" id="google_translate_element"></div>
+    <!-- ========== Start navbar and fullwidth menu ========== -->
+    <nav class="navbar">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <a href="#" class="logo"
+          ><img src="../images/znzlogo.png" alt="znz-logo" class="blue-logo" />
+          <img
+            src="../images/znzwhitelogo.png"
+            alt="znz-white-logo"
+            class="white-logo"
+          />
+        </a>
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+    <div class="fullscreen-menu">
+      <ul class="menu-items">
+        <li><a href="../index">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="project">Projects</a></li>
+        <li><a href="blog">Blog</a></li>
+        <li><a href="contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <!-- ========== End navbar and fullwidth menu ========== -->
+
+    <!-- ========== Start haro section ========== -->
+    <section class="hero-section">
+      <div class="hero-background"></div>
+      <div class="gradient-overlay"></div>
+
+      <!-- Animated Shapes -->
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+
+      <div class="hero-content">
+        <div class="container">
+          <h1 class="hero-title">Contact Us</h1>
+          <p class="hero-subtitle">
+            We transform ideas into extraordinary digital experiences, pushing
+            the boundaries of innovation while maintaining simplicity and
+            elegance.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- ========== End haro section ========== -->
+
+    <!-- ========== Start contact section ========== -->
+    <h2 class="contact-heading">Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-info2">
+        <div class="contact-details">
+          <h2>Contact Details</h2>
+          <p>📍 Zanzibar</p>
+          <p>📞 <a href="tel:+255748926732">+255748926732</a></p>
+          <a href="mailto:info.znzdevelopers@gmail.com"
+            >✉️ info.znzdevelopers@gmail.com</a
+          >
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d27232.224027549928!2d74.37025279999999!3d31.440896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1734173292819!5m2!1sen!2s"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+    <!-- ========== End contact section ========== -->
+
+    <!-- ========== Start footer  ========== -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="../images/znzwhitelogo.png" alt="" />
+          </div>
+          <p class="footer-description">
+            At ZNZ Developers, we are dedicated to transforming dreams into reality by creating exceptional homes in the heart of Zanzibar. With a passion for elegance and quality, we design properties that offer a perfect blend of modern comfort and island charm.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-list">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Villas</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Services</h3>
+          <ul class="footer-list">
+            <li><a href="#">Luxury Villas</a></li>
+            <li><a href="#">Private Beach</a></li>
+            <li><a href="#">Concierge</a></li>
+            <li><a href="#">Restaurant</a></li>
+            <li><a href="#">Spa & Wellness</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-heading contact">Contact Us</h3>
+          <div class="contact-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Jambiani, Zanzibar, Tanzania</span>
+          </div>
+          <div class="contact-info">
+            <i class="fas fa-phone"></i>
+            <span><a href="tel:+255748926732" style="text-decoration: none; color: var(--alice-blue);">+255748926732</a></span>
+          </div>
+          <div class="contact-info">
+            <i class="fas fa-envelope"></i>
+            <span><a href="mailto:info.znzdevelopers@gmail.com" style="text-decoration: none; color:var(--alice-blue)">info.znzdevelopers@gmail.com</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Zanzibar. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- ========== End footer  ========== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      // GSAP Animations
+      document.addEventListener("DOMContentLoaded", () => {
+        // Animate contact info section
+        gsap.from(".contact-info2", {
+          duration: 1,
+          x: -100,
+          opacity: 0,
+          ease: "power3.out",
+        });
+
+        // Animate contact form
+        gsap.from(".contact-form", {
+          duration: 1,
+          x: 100,
+          opacity: 0,
+          ease: "power3.out",
+        });
+
+        // Form submit animation and validation
+        const contactForm = document.getElementById("contactForm");
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          // Simple form validation
+          const name = document.getElementById("name");
+          const email = document.getElementById("email");
+          const message = document.getElementById("message");
+
+          if (name.value && email.value && message.value) {
+            gsap.to(contactForm, {
+              duration: 0.5,
+              scale: 1.05,
+              yoyo: true,
+              repeat: 1,
+              ease: "power1.inOut",
+              onComplete: () => {
+                alert("Message sent successfully!");
+                contactForm.reset();
+              },
+            });
+          } else {
+            alert("Please fill out all fields");
+          }
+        });
+
+        // Button hover effects
+        const submitBtn = document.querySelector(".submit-btn");
+        submitBtn.addEventListener("mouseenter", () => {
+          gsap.to(submitBtn, {
+            duration: 0.3,
+            scale: 1.05,
+            ease: "power1.inOut",
+          });
+        });
+
+        submitBtn.addEventListener("mouseleave", () => {
+          gsap.to(submitBtn, {
+            duration: 0.3,
+            scale: 1,
+            ease: "power1.inOut",
+          });
+        });
+      });
+    </script>
+       <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement(
+            {
+              defaultLanguage: "en",
+              pageLanguage: "en",
+              includedLanguages: "de,ru,en,es,it,fr,ar,sw",
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisp1ay: true,
+              multilanguagePage: true,
+            },
+            "google_translate_element"
+          );
+        }
+        document
+        .querySelector(".translate-button")
+        .addEventListener("click", function () {
+          document.querySelector(".hero-section").classList.add("mt-40");
+        });
+      </script>
+      <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="../scripts/navbar.js"></script>
+    <script src="../scripts/footer.js"></script>
+  </body>
+</html>
