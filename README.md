@@ -41,24 +41,21 @@ ZNZBuilder is developed for real estate agencies, local sellers, and internation
 ## 📁 Folder Structure (Sample - Next.js)
 ```
 znzbuilder/
-├── components/
-│ ├── Header.jsx
-│ ├── Footer.jsx
-│ └── PropertyCard.jsx
-├── pages/
-│ ├── index.jsx
-│ ├── properties/[slug].jsx
-│ └── contact.jsx
-├── public/
-│ ├── images/
-│ └── locales/ # For i18next translations
-├── styles/
-│ └── globals.css
-├── utils/
-│ └── api.js
-├── next.config.js
-├── i18n.js
-└── README.md
+├── index.html
+├── about.html
+├── contact.html
+├── properties/
+│ ├── list.html
+│ └── single-property.html
+├── assets/
+│ ├── css/
+│ ├── js/
+│ └── images/
+├── translations/
+│ ├── en.json
+│ ├── sw.json
+│ └── fr.json
+├── README.md
 ```
 
 ---
